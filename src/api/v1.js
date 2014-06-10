@@ -11,7 +11,17 @@ exports.addRoutes = function(app) {
             if(error){
                 console.log(error);
             }
-        })
+        });
        res.send(tourney);
+    });
+
+    app.get('/api/tournaments',function(req,res){
+       Tournament.list({perPage:30,page:0},function(error,tournies){
+           if(error){
+                res.send('500');
+           } else {
+               res.send(tournies);
+           }
+       });
     });
 };

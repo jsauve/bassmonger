@@ -1,0 +1,14 @@
+{
+  "name": "bassmonger",
+  "version": "0.0.0",
+  "description": "Web Application to support easy score keeping of fishing leagues",
+  "main": "/src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bassfishing"
+  ],
+  "author": "josh krebs",
+  "license": "mit"
+}

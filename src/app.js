@@ -5,7 +5,7 @@ var fs = require('fs');
 var mongoose = require('mongoose');
 
 var connect = function(){
-    mongoose.connect(ENV['MONGOHQ_URL']);
+    mongoose.connect(process.env.MONGOHQ_URL);
 };
 
 connect();

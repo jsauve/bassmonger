@@ -16,7 +16,7 @@ exports.addRoutes = function(app) {
     });
 
     app.get('/api/tournaments',function(req,res){
-       Tournament.list({perPage:30,page:0},function(error,tournies){
+       Tournament.find({}).exec(function(error,tournies){
            if(error){
                 res.send('500');
            } else {

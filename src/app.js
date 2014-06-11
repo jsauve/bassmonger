@@ -3,9 +3,15 @@ var logfmt = require("logfmt");
 var app = express();
 var fs = require('fs');
 var mongoose = require('mongoose');
+var passport = require('passport');
+var flash = require('connect-flash');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
 
 var connect = function(){
-    mongoose.connect(process.env.MONGOHQ_URL);
+    mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://bassmonger:bigberthathebuttsister@kahana.mongohq.com:10008/app26201214');
 };
 
 connect();
@@ -18,10 +24,20 @@ mongoose.connection.on('disconnected',function(){
     connect();
 });
 
-app.use(logfmt.requestLogger());
+var configureApp = function(){
+    app.use(logfmt.requestLogger());
+    app.use(express.static('./public'));
+    app.use(logger);
+    app.use(cookieParser);
+    app.use(bodyParser);
 
-app.use(express.static('./public'));
+    app.use(session({secret: process.env.SESSIONSECRET || 'hellokittyadventures'}));
+    app.use(passport.initialize());
+    app.use(passport.session());
+    app.use(flash());
+};
 
+configureApp();
 //bootstrap Models
 var modelsPath = __dirname + '/models';
 
@@ -30,6 +46,9 @@ fs.readdirSync(modelsPath).forEach(function(file){
        require(modelsPath + '/' + file);
    }
 });
+
+var routes = require('./routes/routes.js');
+routes.addRoutes(app,passport);
 
 app.get('/',function(req,res){
     res.sendfile('./public/index.html!');
@@ -43,7 +62,7 @@ app.all('/public/*', function(req, res, next) {
     res.sendfile(req.path);
 });
 
-require('./api/v1').addRoutes(app, undefined);
+require('./routes/api/v1').addRoutes(app,passport);
 
 var port = Number(process.env.PORT || 5000);
 

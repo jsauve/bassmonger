@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var connect = function(){
-    mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://bassmonger:bigberthathebuttsister@kahana.mongohq.com:10008/app26201214');
+    mongoose.connect(process.env.MONGOHQ_URL);
 };
 
 connect();

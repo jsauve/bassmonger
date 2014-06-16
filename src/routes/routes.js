@@ -12,7 +12,12 @@ module.exports = function(app, passport) {
      res.sendfile('./public/index.html');
      });*/
 
-    app.all('/public/*', function(req, res, next) {
-        res.sendfile(req.path);
+    app.all('/bower_components/*', function(req, res, next) {
+
+        res.sendfile(path.join(publicDir,req.path));
+    });
+
+    app.all('/app/*',function(req,res,next){
+        res.sendfile(path.join(publicDir,req.path));
     });
 };

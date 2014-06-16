@@ -1,4 +1,6 @@
-angular.module('bassmonger',[])
+angular.module('bassmonger',[
+    'bassmonger.login'
+])
     .config([function(){
 
     }])

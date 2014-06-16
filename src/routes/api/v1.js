@@ -4,7 +4,7 @@ var _ = require('lodash');
 var mongoose = require('mongoose');
 var Tournament = mongoose.model('Tournament');
 
-exports.addRoutes = function(app, passport) {
+module.exports = function(app, passport) {
     app.get('/api/test',function(req,res){
         var tourney = new Tournament({lake:'white bear',name:'testTourney'});
         tourney.save(function(error){

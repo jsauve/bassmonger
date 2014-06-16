@@ -1,0 +1,9 @@
+{
+    "port" : 5001,
+    "mongoose": {
+        "uri": "mongodb://bassmonger:bigberthathebuttsister@kahana.mongohq.com:10008/app26201214"
+    },
+    "security":{
+        "tokenLife": 3600
+    }
+}

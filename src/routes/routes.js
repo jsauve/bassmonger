@@ -1,8 +1,11 @@
-module.exports = function(app, passport) {
-    console.log('yaya');
+var path = require('path'),
+    appDir = path.dirname(require.main.filename),
+    publicDir = path.join(appDir,'../','public/');
 
+module.exports = function(app, passport) {
     app.get('/',function(req,res){
-        res.sendfile('./public/index.html!');
+        var indexPath = path.join(publicDir,'index.html');
+        res.sendfile(indexPath);
     });
 
     /*app.all('*//*', function(req, res, next) {

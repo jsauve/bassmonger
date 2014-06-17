@@ -1,0 +1,8 @@
+<div class="row">
+    <h1>Bassmonger <small>The official standings website for the St. Croix Valley Fishing League</small></h1>
+</div>
+<h4>Tournaments</h4>
+<div class="row" ng-repeat="tournament in tournaments">
+    <a ui-sref="tournaments-details({tournamentId: tournamentId})" ng-bind="tournament.name"></a>
+</div>
+<a ui-sref="login">Login</a>

@@ -1,4 +1,4 @@
-angular.module('bassmonger.login')
-    .controller('bassmonger.login',['$scope',function($scope){
-
+angular.module('bassmonger')
+    .controller('login',['$scope',function($scope){
+        $scope.userCredentials = {username:'', password:''};
     }]);

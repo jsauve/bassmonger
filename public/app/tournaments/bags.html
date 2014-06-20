@@ -1,0 +1,5 @@
+<h2 ng-bind="tournament.name + ' ' + tournament.lake"></h2>
+<button class="btn btn-success glyphicon-plus" ng-click="addBag()">Add Bag</button>
+<div class="row" ng-repeat="bag in bags">
+    <span class="col-md-4">{{bag.team.name}} Total weight: {{bag.totalWeight}} lbs. Big Bass {{bag.bigBass.weight}}</span>
+</div>

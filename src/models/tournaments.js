@@ -8,3 +8,4 @@ var TournamentSchema = new Schema({
 });
 
 mongoose.model('Tournament',TournamentSchema);
+

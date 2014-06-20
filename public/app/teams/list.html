@@ -1,0 +1,7 @@
+<div class="row" ng-repeat="team in teams">
+    <h6 ng-bind="team.name"></h6>
+    <div class="row" ng-repeat="member in team.members">
+        <div class="col-md-4">{{member.firstName}} {{member.lastName}}</div>
+    </div>
+</div>
+<button class="btn btn-success" ui-sref="teams-create">Create Team</button>

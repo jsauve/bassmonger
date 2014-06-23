@@ -3,6 +3,7 @@ angular.module('bassmonger',[
     'ui.router',
     'ui.bootstrap.transition',
     'ui.bootstrap.modal',
+    'ui.bootstrap.dropdown',
     'bassmonger.resources'
 ])
     .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider){

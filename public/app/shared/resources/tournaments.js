@@ -28,4 +28,29 @@ angular.module('bassmonger.resources', ['ngResource'])
                     'update':{method:'PUT'}
                 });
         }
+    ])
+    .factory('Standings',[
+        '$resource', function($resource){
+            return $resource('/api/v1/standings',{},
+                {
+                    'get':{
+                        method:'GET',
+                        isArray:true
+                    }
+                });
+        }
+    ])
+    .factory('TournamentResults',[
+        '$resource', function($resource){
+            return $resource('/api/v1/tournaments/:tournamentId/results',
+                {
+                   tournamentId:'@tournamentId'
+                },
+                {
+                    'get':{
+                        method:'GET',
+                        isArray:true
+                    }
+                });
+        }
     ]);

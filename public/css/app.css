@@ -1,0 +1,19 @@
+.firstPlace{
+    background-color:lightgreen !important;
+}
+
+.secondPlace{
+    background-color:lightyellow !important;
+}
+
+.thirdPlace{
+    background-color: lightblue !important;
+}
+
+.fourthPlace{
+    background-color: lightpink !important;
+}
+
+.bigBass{
+ background-color: orange !important;
+}

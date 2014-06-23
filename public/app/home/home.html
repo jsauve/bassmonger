@@ -1,8 +1,32 @@
 <div class="row">
     <h1>Bassmonger <small>The official standings website for the St. Croix Valley Fishing League</small></h1>
 </div>
-<h4>Tournaments</h4>
-<div class="row" ng-repeat="tournament in tournaments">
-    <a ui-sref="tournaments-details({tournamentId: tournamentId})" ng-bind="tournament.name"></a>
+<h4>Standings</h4>
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Team</th>
+                <th>Total Weight</th>
+                <th>Big Bass</th>
+                <th>Overall Big Bass Rank</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="standingsLine in standings">
+                <td ng-bind="standingsLine.team.name"></td>
+                <td ng-bind="standingsLine.total"></td>
+                <td ng-bind="standingsLine.bigBass"></td>
+                <td ng-bind="standingsLine.bigBassRank"></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-<a ui-sref="login">Login</a>
+<h4>Tournament Results</h4>
+<div class="row">
+    <div class="col-md-4" ng-repeat="tournament in tournaments">
+        <a ui-sref="tournaments-results({tournamentId:tournament._id})" >{{tournament.name}} - {{tournament.lake}}</a>
+    </div>
+</div>
+<!--
+<a ui-sref="login">Login</a>-->

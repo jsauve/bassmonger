@@ -9,38 +9,21 @@ var log = require(path.join(__dirname,'../../util/log'))(module);
 
 module.exports = function(app, passport) {
     app.get('/api/v1/standings',function(req,res){
-       /*Bag.aggregate([
-           {
-               $project:{
-                    _id:'$team._id',
-                   totalWeight:'$totalWeight',
-                   teamName:'$team.name'
-                }
-           },
-           {
-               $group:{
-                   _id: '$teamName',
-                   total:{
-                       $sum:'$totalWeight'
-                   }
-               }
-           }
-       ])*/
 
-
-        Bag.aggregate({
-            /*$project:{
-                _id:'$_team',
-                teamId:'$_team',
-                totalWeight:'$totalWeight'
-            },*/
-            $group:{
+        Bag.aggregate([
+            {$group:{
                 _id:'$_team',
                 total:{
                     $sum:'$totalWeight'
+                },
+                bigBass:{
+                    $max:'$bigBass.weight'
                 }
-            }
-        }).exec(function(error,bags){
+            }},
+            {$sort:{
+                total:-1
+            }}
+        ]).exec(function(error,bags){
             if(error){
                 log(error);
                 res.send(500);
@@ -63,8 +46,6 @@ module.exports = function(app, passport) {
                     }));
 
                 });
-
-
             }
        })
     });

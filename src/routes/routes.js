@@ -20,4 +20,8 @@ module.exports = function(app, passport) {
     app.all('/app/*',function(req,res,next){
         res.sendfile(path.join(publicDir,req.path));
     });
+
+    app.all('/css/*',function(req,res,next){
+       res.sendfile(path.join(publicDir,req.path));
+    });
 };

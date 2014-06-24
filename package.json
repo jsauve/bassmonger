@@ -1,14 +1,44 @@
 {
   "name": "bassmonger",
   "version": "0.0.0",
-  "description": "Web Application to support easy score keeping of fishing leagues",
-  "main": "/src/app.js",
+  "description": "A web site for keeping track of fishing league scores\"",
+  "main": "./src/app.js",
+  "dependencies": {
+    "bcrypt-nodejs": "~0.0.3",
+    "body-parser": "~1.3.0",
+    "bower": "~1.3.5",
+    "connect-flash": "~0.1.1",
+    "cookie-parser": "~1.1.0",
+    "ejs": "~1.0.0",
+    "express": "~4.4.1",
+    "express-session": "~1.2.1",
+    "googleapis": "~0.7.0",
+    "lodash": "~2.4.1",
+    "logfmt": "~1.1.2",
+    "mongoose": "~3.8.12",
+    "morgan": "~1.1.1",
+    "nconf": "~0.6.9",
+    "passport": "~0.2.0",
+    "passport-google-oauth": "~0.1.5",
+    "passport-local": "~1.0.0",
+    "request": "~2.36.0",
+    "winston": "~0.7.3"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdkrebs/bassmonger.git"
   },
   "keywords": [
     "bassfishing"
   ],
-  "author": "josh krebs",
-  "license": "mit"
+  "author": "joshuadenniskrebs@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdkrebs/bassmonger/issues"
+  },
+  "homepage": "https://github.com/jdkrebs/bassmonger"
 }

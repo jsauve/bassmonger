@@ -22,7 +22,8 @@
     "passport-google-oauth": "~0.1.5",
     "passport-local": "~1.0.0",
     "request": "~2.36.0",
-    "winston": "~0.7.3"
+    "winston": "~0.7.3",
+    "debug": "^1.0.2"
   },
   "devDependencies": {},
   "scripts": {

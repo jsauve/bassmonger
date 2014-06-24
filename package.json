@@ -25,7 +25,8 @@
     "winston": "~0.7.3",
     "debug": "^1.0.2",
     "ee-first": "^1.0.3",
-    "mime-types": "^1.0.0"
+    "mime-types": "^1.0.0",
+    "vary": "^0.1.0"
   },
   "devDependencies": {},
   "scripts": {

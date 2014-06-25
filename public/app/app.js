@@ -52,7 +52,12 @@ angular.module('bassmonger',[
             });
 
     }])
-    .run([function(){
-
+    .run(['$rootScope', 'Teams','Tournaments',function($rootScope, Teams,Tournaments){
+        Teams.query().$promise.then(function(teams){
+            $rootScope.teamList = teams;
+        });
+        Tournaments.query().$promise.then(function(tournaments){
+            $rootScope.tournamentList = tournaments;
+        });
     }]);
 

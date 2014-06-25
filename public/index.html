@@ -20,11 +20,7 @@
                         Teams <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li ng-repeat="team in teamList"><a ng-bind="team.name" href="#"></a></li>
                     </ul>
                 </li>
                 <li dropdown="" class="btn-group" dropdown="" is-open="status.isTournamentsOpen">
@@ -32,11 +28,7 @@
                         Tournaments <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li ng-repeat="tournament in tournamentList"><a ng-bind="tournament.lake" ui-sref="tournaments-results({tournamentId:tournament._id})"></a></li>
                     </ul>
                 </li>
             </ul>

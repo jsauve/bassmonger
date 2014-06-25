@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var Tournament = mongoose.model('Tournament');
 
 module.exports = function(app, passport) {
+    require('./authorization')(app,passport);
     require('./tournaments')(app,passport);
     require('./teams')(app,passport);
     require('./bags')(app,passport);

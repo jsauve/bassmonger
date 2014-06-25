@@ -4,8 +4,12 @@ var fs = require('fs');
 var passport = require('passport');
 var log = require('./util/log')(module);
 var config = require('./config/config');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var google_strategy = require('passport-google-oauth').OAuth2Strategy;
 
 require('./config/database')();
+
 
 //bootstrap Models
 var modelsPath = __dirname + '/models';
@@ -14,6 +18,39 @@ fs.readdirSync(modelsPath).forEach(function(file){
    if(~file.indexOf('.js')){
        require(modelsPath + '/' + file);
    }
+});
+
+var Client = mongoose.model('Clients');
+var Users = mongoose.model('Users');
+
+Client.findOne({clientType:'google'}).exec(function(error,clientInfo){
+    passport.use(new google_strategy({
+            clientID: clientInfo.clientId,
+            clientSecret: clientInfo.clientSecret,
+            callbackURL: clientInfo.callbackUrl
+        },
+        function (accessToken, refreshToken, profile, done) {
+            Users.findOne({email: profile._json.email}, function (err, usr) {
+                if(usr == null){
+                    usr = new Users();
+                    usr.email = profile._json.email;
+                    usr.refreshToken = refreshToken;
+                }
+                usr.token = accessToken;
+                usr.firstName = profile.name.givenName;
+                usr.lastName = profile.name.familyName;
+                usr.save(function (err, usr, num) {
+                    if (err) {
+                        console.log('error saving token');
+                    }
+                });
+                process.nextTick(function () {
+                    return done(null, profile);
+                });
+            });
+        }
+    ));
+    require('./config/express')(app,passport);
 });
 
 var routes = require('./routes/routes.js')(app,passport);

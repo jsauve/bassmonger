@@ -10,4 +10,5 @@ module.exports = function(app, passport) {
     require('./teams')(app,passport);
     require('./bags')(app,passport);
     require('./standings')(app,passport);
+    require('./users')(app,passport);
 };

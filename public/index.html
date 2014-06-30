@@ -31,10 +31,25 @@
                         <li ng-repeat="tournament in tournamentList"><a ng-bind="tournament.lake" ui-sref="tournaments-results({tournamentId:tournament._id})"></a></li>
                     </ul>
                 </li>
+                <li ng-if="isLoggedIn && user.isAdmin" dropdown="" class="btn-group" is-open="status.isAdminOpen">
+                    <a type="button" class="btn btn-primary dropdown-toggle " ng-disabled="disabled">
+                        Admin <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a ui-sref="teams-list">Teams</a></li>
+                        <li><a ui-sref="tournaments-list">Tournaments</a></li>
+                        <li><a href="#">Users</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-
+                <li ng-if="isLoggedIn">
+                    <a target="_blank">Welcome {{user.email}}</a>
+                </li>
+                <li ng-if="!isLoggedIn">
+                    <a type="button" class="btn btn-primary" href="/auth/google">Login</a>
+                </li>
             </ul>
 
         </div>
@@ -54,11 +69,21 @@
 <script src="bower_components/angular-ui-bootstrap/src/transition/transition.js" type="application/javascript"></script>
 <script src="bower_components/angular-ui-bootstrap/src/modal/modal.js" type="application/javascript"></script>
 <script src="bower_components/angular-ui-bootstrap/src/dropdown/dropdown.js" type="application/javascript"></script>
+<script src="bower_components/angular-ui-bootstrap/src/position/position.js" type="application/javascript"></script>
+<script src="bower_components/angular-ui-bootstrap/src/bindHtml/bindHtml.js" type="application/javascript"></script>
+<script src="bower_components/angular-ui-bootstrap/src/tooltip/tooltip.js" type="application/javascript"></script>
+<script src="bower_components/angular-ui-bootstrap/src/popover/popover.js" type="application/javascript"></script>
 <script src="app/shared/resources/tournaments.js" type="application/javascript"></script>
-<script src="app/login/login.js" type="text/javascript"></script>
 <script src="app/app.js" type="text/javascript"></script>
 <script src="app/home/home.js" type="text/javascript"></script>
 <script src="app/tournaments/results.js" type="application/javascript"></script>
 <script src="app/tournaments/bags.js" type="text/javascript"></script>
+<script src="app/tournaments/list.js" type="application/javascript"></script>
+<script src="app/tournaments/edit.js" type="application/javascript"></script>
+<script src="app/tournaments/delete.js" type="application/javascript"></script>
+<script src="app/tournaments/bags/create.js" type="application/javascript"></script>
 <script src="app/teams/list.js" type="text/javascript"></script>
+<script src="app/teams/create.js" type="application/javascript"></script>
+<script src="app/teams/team-members/create.js" type="application/javascript"></script>
+<script src="app/unauthorized/unauthorized.js" type="application/javascript"></script>
 </html>

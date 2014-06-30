@@ -8,7 +8,8 @@ var User = new Schema({
     lastName:{type:String,required:true},
     email:{type:String,required:true},
     token:{type:String,required:false},
-    refreshToken:{type:String,required:false}
+    refreshToken:{type:String,required:false},
+    isAdmin:{type:Boolean,default:false}
 });
 
 var UserModel = mongoose.model('Users', User);

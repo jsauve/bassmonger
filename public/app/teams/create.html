@@ -1,0 +1,22 @@
+<div class="row">
+    <div class ="col-md-4">
+        <form class="form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input ng-model="team.name" type="text" class="form-control" id="name" placeholder="Team Name"/>
+            </div>
+            <div class="form-group">
+                <label for="nickName">Nickname:</label>
+                <input ng-model="team.nickname" type="text" class="form-control" id="nickName" placeholder="Nickname"/>
+            </div>
+            <div>
+                <label>Team Members :</label>
+            </div>
+            <div class="row" ng-repeat="teamMember in team.members">
+                {{teamMember.firstName + teamMember.lastName}}
+            </div>
+            <button ng-click="save(team)" type="submit" class="btn btn-default">Submit</button>
+            <button ng-click="addTeamMember()"class="btn btn-success">Add Team Member</button>
+        </form>
+    </div>
+</div>

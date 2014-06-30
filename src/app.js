@@ -9,7 +9,7 @@ var passport = require('passport');
 var google_strategy = require('passport-google-oauth').OAuth2Strategy;
 
 require('./config/database')();
-
+app.use(require('connect').bodyParser());
 
 //bootstrap Models
 var modelsPath = __dirname + '/models';

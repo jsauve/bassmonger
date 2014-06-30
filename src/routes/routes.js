@@ -24,4 +24,8 @@ module.exports = function(app, passport) {
     app.all('/css/*',function(req,res,next){
        res.sendfile(path.join(publicDir,req.path));
     });
+
+    app.all('/fonts/*',function(req,res,next){
+       res.sendfile(path.join(publicDir,req.path));
+    });
 };

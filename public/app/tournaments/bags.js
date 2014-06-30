@@ -1,4 +1,4 @@
-angular.module('bassmonger-admin')
+angular.module('bassmonger')
     .controller('tournaments.bags',['$scope', '$state', '$modal', 'resources', function($scope, $state, $modal, resources){
         $scope.tournament = {};
         $scope.bags = [];
@@ -11,13 +11,6 @@ angular.module('bassmonger-admin')
 
         resources.Bags.query({tournamentId:$state.params.tournamentId}).$promise.then(function(bags){
             $scope.bags = bags;
-            angular.forEach($scope.bags,function(bag){
-                resources.Teams.get({_id:bag.teamId}).$promise.then(function(team){
-                    bag.team = team;
-                },function(error){
-                    console.log(error);
-                });
-            });
         },function(error){
             console.log(error);
         });

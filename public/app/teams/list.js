@@ -1,4 +1,4 @@
-angular.module('bassmonger-admin')
+angular.module('bassmonger')
     .controller('teams.list',['$scope','resources',function($scope, resources) {
         $scope.teams = [];
 

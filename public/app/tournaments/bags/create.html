@@ -1,0 +1,45 @@
+<div class="modal-header">Enter Bag Information</div>
+<div class="modal-body">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label for="team">Team:</label>
+            <select id="team" ng-model="bag.teamId" ng-options="team._id as team.name for team in teams"></select>
+        </div>
+        <div class="form-group">
+            <label for="weight">Total Weight:</label>
+            <input type="text" id="weight" ng-model="bag.totalWeight" placeholder="Total Weight"/>
+        </div>
+        <div class="form-group">
+            <label for="big-bass-weight">Big Bass Weight:</label>
+            <input type="text" id="big-bass-weight" ng-model="bag.bigBass.weight" placeholder="Big Bass Weight"/>
+            <label for="big-bass-was-smallie">Was Smallie?</label>
+            <input id="big-bass-was-smallie" type="checkbox" ng-model="bag.bigBass.wasSmallie" checked="false"/>
+        </div>
+        <div class="form-group">
+            <label for="bass">Number of Bass:</label>
+            <input type="number" id="bass" ng-model="bag.numberOfBass" placeholder="Number Of Bass"/>
+        </div>
+        <div class="form-group">
+            <label for="smallies">Number Of Smallies:</label>
+            <input type="number" id="smallies" ng-model="bag.numberOfSmallies" placeholder="Number Of Smallies"/>
+        </div>
+        <div class="form-group">
+            <label for="pike">Number of Pike:</label>
+            <input type="number" id="pike" ng-model="bag.numberOfPike" placeholder="Number Of Pike"/>
+        </div>
+        <div class="form-group">
+            <label for="walleye">Number of Walleye:</label>
+            <input type="number" id="walleye" ng-model="bag.numberOfWalleye" placeholder="Number Of Walleye"/>
+        </div>
+        <div class="form-group">
+            <label for="crappie">Number of Crappie:</label>
+            <input type="number" id="crappie" ng-model="bag.numberOfCrappie" placeholder="Number Of Crappie"/>
+        </div>
+        <div class="form-group">
+            <label for="blue-gills">Number of Bluegills:</label>
+            <input type="number" id="blue-gills" ng-model="bag.numberOfBluegills" placeholder="Number Of Bluegills"/>
+        </div>
+        <button class="btn btn-success" ng-click="save()">Submit</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </form>
+</div>

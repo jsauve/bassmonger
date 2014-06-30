@@ -1,5 +1,26 @@
 angular.module('bassmonger')
-    .controller('tournaments.list',['$scope',function($scope){
-        $scope.title = 'Hello WOrld';
-        $scope.tournies =[{lake:'White Bear',name:'Test Tourney'},{lake:'Bald Eagle', name:'Test Tourney 2'}];
+    .controller('tournaments.list',['$scope', '$modal', 'resources', function($scope, $modal, resources){
+        resources.Tournaments.query().$promise.then(function(tournaments){
+           $scope.tournaments = tournaments;
+        },function(error){
+            console.log(error);
+        });
+
+        function deleteTournament(tournament){
+            var modalInstance = $modal.open({
+                templateUrl: '/app/tournaments/delete.html',
+                controller: 'tournaments.delete'
+            });
+            modalInstance.result.then(function(result) {
+                tournament.delete().then(function(success){
+
+                },function(error){
+                    console.log(error);
+                });
+            },function(){
+                console.log('cancelled');
+            });
+        }
+
+        $scope.deleteTournament = deleteTournament;
     }]);

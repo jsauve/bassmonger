@@ -26,7 +26,7 @@ module.exports = function(app,passport){
                 }
 
                 res.writeHead(302, {
-                    'Location': 'http://localhost:5000/#/index?token=' + usr.token + '&user=' + usr.email
+                    'Location': '/#?token=' + usr.token + '&user=' + usr.email
                 });
                 res.end();
             });

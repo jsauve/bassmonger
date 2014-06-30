@@ -1,0 +1,20 @@
+<div class="row">
+    <div class ="col-md-4">
+        <form class="form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input ng-model="tournament.name" type="text" class="form-control" id="name" placeholder="Tournament Name"/>
+            </div>
+            <div class="form-group">
+                <label for="lake">Lake Name:</label>
+                <input ng-model="tournament.lake" type="text" class="form-control" id="lake" placeholder="Lake Name"/>
+            </div>
+            <!--This needs to be fixed so that it actually binds (can't bind to a string)-->
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input ng-model="tournament.date" type="date" class="form-control" id="date">
+            </div>
+            <button ng-click="updateTournament(tournament)" type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>

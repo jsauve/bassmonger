@@ -1,5 +1,29 @@
 <h2 ng-bind="tournament.name + ' ' + tournament.lake"></h2>
-<button class="btn btn-success glyphicon-plus" ng-click="addBag()">Add Bag</button>
-<div class="row" ng-repeat="bag in bags">
-    <span class="col-md-4">{{bag.team.name}} Total weight: {{bag.totalWeight}} lbs. Big Bass {{bag.bigBass.weight}}</span>
-</div>
+<button class="btn-sm btn-primary glyphicon glyphicon-plus" ng-click="addBag()">Add Bag</button>
+<h4>Bags</h4>
+<table class="table table-striped table-hover">
+    <thead>
+    <tr>
+        <th>Team</th>
+        <th>Total Weight</th>
+        <th>Big Bass</th>
+        <th># Bass</th>
+        <th># Pike</th>
+        <th># Walleye</th>
+        <th># Crappie</th>
+        <th># Bluegill</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="bag in bags">
+        <td ng-bind="bag._team.name"></td>
+        <td ng-bind="bag.totalWeight"></td>
+        <td ng-bind="bag.bigBass.weight"></td>
+        <td ng-bind="bag.numberOfBass"></td>
+        <td ng-bind="bag.numberOfPike"></td>
+        <td ng-bind="bag.numberOfWalleyes"></td>
+        <td ng-bind="bag.numberOfCrappies"></td>
+        <td ng-bind="bag.numberOfBluegills"></td>
+    </tr>
+    </tbody>
+</table>

@@ -26,7 +26,8 @@
     "debug": "^1.0.2",
     "ee-first": "^1.0.3",
     "mime-types": "^1.0.0",
-    "vary": "^0.1.0"
+    "vary": "^0.1.0",
+    "connect": "^2.21.1"
   },
   "devDependencies": {},
   "scripts": {

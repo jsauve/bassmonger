@@ -15,7 +15,7 @@
         <tbody>
             <tr ng-repeat="standingsLine in standings">
                 <td ng-bind="standingsLine.team.name"></td>
-                <td ng-bind="standingsLine.total"></td>
+                <td ng-bind="standingsLine.total | roundToHundredths"></td>
                 <td ng-bind="standingsLine.bigBass"></td>
                 <td ng-bind="standingsLine.bigBassRank"></td>
             </tr>

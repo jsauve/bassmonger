@@ -17,7 +17,7 @@
         <tbody>
         <tr ng-class="result.class" ng-repeat="result in results">
             <td ng-bind="result.team.name"></td>
-            <td ng-bind="result.total"></td>
+            <td ng-bind="result.total | roundToHundredths"></td>
             <td ng-bind="result.bigBass"></td>
             <td ng-bind="result.bigBassRank"></td>
         </tr>

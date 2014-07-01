@@ -8,7 +8,8 @@ angular.module('bassmonger',[
     'ui.bootstrap.bindHtml',
     'ui.bootstrap.tooltip',
     'ui.bootstrap.popover',
-    'bassmonger.resources'
+    'bassmonger.resources',
+    'bassmonger.filters'
 ])
     .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise('');

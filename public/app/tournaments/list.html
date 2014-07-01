@@ -11,14 +11,14 @@
     <table class="table table-striped table-hover">
         <thead>
         <tr>
-            <th>Week</th>
+            <th class="hidden-sm hidden-xs">Week</th>
             <th>Lake</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="tournament in tournaments">
-            <td ng-bind="tournament.name"></td>
+            <td ng-bind="tournament.name" class="hidden-sm hidden-xs"></td>
             <td ng-bind="tournament.lake"></td>
             <td>
                 <div class="btn-group">

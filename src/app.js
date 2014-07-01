@@ -27,7 +27,7 @@ Client.findOne({clientType:'google'}).exec(function(error,clientInfo){
     passport.use(new google_strategy({
             clientID: clientInfo.clientId,
             clientSecret: clientInfo.clientSecret,
-            callbackURL: clientInfo.callbackUrl
+            callbackURL: config.get('googleAuth:callback') || clientInfo.callbackUrl
         },
         function (accessToken, refreshToken, profile, done) {
             Users.findOne({email: profile._json.email}, function (err, usr) {
@@ -41,12 +41,16 @@ Client.findOne({clientType:'google'}).exec(function(error,clientInfo){
                 usr.lastName = profile.name.familyName;
                 usr.save(function (err, usr, num) {
                     if (err) {
-                        console.log('error saving token');
+                        log.error(err);
+                    } else {
+                        process.nextTick(function () {
+                            return done(null, profile);
+                        });
                     }
                 });
-                process.nextTick(function () {
+                /*process.nextTick(function () {
                     return done(null, profile);
-                });
+                });*/
             });
         }
     ));

@@ -5,5 +5,8 @@
     },
     "security":{
         "tokenLife": 3600
+    },
+    "googleAuth":{
+        "callback":""
     }
 }

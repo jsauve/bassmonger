@@ -12,16 +12,16 @@
                 <tr>
                     <th>Team</th>
                     <th>Total Weight</th>
-                    <th>Big Bass</th>
-                    <th>Overall Big Bass Rank</th>
+                    <th class="hidden-sm hidden-xs">Big Bass</th>
+                    <th class="hidden-sm hidden-xs">Overall Big Bass Rank</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="standingsLine in standings">
                     <td ng-bind="standingsLine.team.name"></td>
                     <td ng-bind="standingsLine.total | roundToHundredths"></td>
-                    <td ng-bind="standingsLine.bigBass"></td>
-                    <td ng-bind="standingsLine.bigBassRank"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="standingsLine.bigBass"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="standingsLine.bigBassRank"></td>
                 </tr>
             </tbody>
         </table>

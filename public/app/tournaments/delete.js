@@ -1,6 +1,9 @@
 angular.module('bassmonger')
-    .controller('tournaments.delete',['$scope','$modalInstance',function($scope, $modalInstance) {
-
+    .controller('tournaments.delete',['$scope', '$modalInstance', '$state',function($scope, $modalInstance, $state) {
+        if(!$scope.user.isAdmin){
+            $state.go('unauthorized');
+            $modalInstance.dismiss('cancel');
+        }
         $scope.ok = function(){
             $modalInstance.close();
         };

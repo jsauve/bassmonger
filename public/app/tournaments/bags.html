@@ -20,11 +20,11 @@
             <th>Team</th>
             <th>Total Weight</th>
             <th>Big Bass</th>
-            <th># Bass</th>
-            <th># Pike</th>
-            <th># Walleye</th>
-            <th># Crappie</th>
-            <th># Bluegill</th>
+            <th class="hidden-sm hidden-xs"># Bass</th>
+            <th class="hidden-sm hidden-xs"># Pike</th>
+            <th class="hidden-sm hidden-xs"># Walleye</th>
+            <th class="hidden-sm hidden-xs"># Crappie</th>
+            <th class="hidden-sm hidden-xs"># Bluegill</th>
         </tr>
         </thead>
         <tbody>
@@ -32,11 +32,11 @@
             <td ng-bind="bag._team.name"></td>
             <td ng-bind="bag.totalWeight"></td>
             <td ng-bind="bag.bigBass.weight"></td>
-            <td ng-bind="bag.numberOfBass"></td>
-            <td ng-bind="bag.numberOfPike"></td>
-            <td ng-bind="bag.numberOfWalleyes"></td>
-            <td ng-bind="bag.numberOfCrappies"></td>
-            <td ng-bind="bag.numberOfBluegills"></td>
+            <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfBass"></td>
+            <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfPike"></td>
+            <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfWalleyes"></td>
+            <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfCrappies"></td>
+            <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfBluegills"></td>
         </tr>
         </tbody>
     </table>

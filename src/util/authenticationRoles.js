@@ -13,7 +13,7 @@ module.exports.Admin = function(req, res, next){
         if(!user || !user.isAdmin){
             res.send(401);
         } else {
-            next(req, res);
+            next();
         }
     });
 };
@@ -30,7 +30,7 @@ module.exports.LoggedIn = function(req,res,next){
         if(!user){
             res.send(401);
         } else {
-            next(req, res);
+            next();
         }
     });
 };

@@ -1,7 +1,7 @@
 <div class="page-header">
     <div class="row">
         <div class="col-lg-6 col-md-5 col-sm-4">
-            <h3>Update Tournament Info</h3>
+            <h2>Create Tournament</h2>
         </div>
     </div>
 </div>
@@ -16,12 +16,11 @@
                 <label for="lake">Lake Name:</label>
                 <input ng-model="tournament.lake" type="text" class="form-control" id="lake" placeholder="Lake Name"/>
             </div>
-            <!--This needs to be fixed so that it actually binds (can't bind to a string)-->
             <div class="form-group">
-                <label for="date">Date:</label>
                 <input ng-model="tournament.date" type="date" class="form-control" id="date">
             </div>
-            <button ng-click="updateTournament(tournament)" type="submit" class="btn btn-success">Submit</button>
+
+            <button ng-click="save(tournament)" type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>
 </div>

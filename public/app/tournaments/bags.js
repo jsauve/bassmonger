@@ -1,8 +1,8 @@
 angular.module('bassmonger')
-    .controller('tournaments.bags',['$scope', '$state', '$modal', 'resources', function($scope, $state, $modal, resources){
+    .controller('tournaments.bags',['$scope', '$state', '$modal', 'resources', 'scoringService', function($scope, $state, $modal, resources,scoringService){
         $scope.tournament = {};
         $scope.bags = [];
-
+        console.log(scoringService);
         resources.Tournaments.get({_id:$state.params.tournamentId}).$promise.then(function(tournament){
             $scope.tournament = tournament;
         },function(error){
@@ -10,7 +10,8 @@ angular.module('bassmonger')
         });
 
         resources.Bags.query({tournamentId:$state.params.tournamentId}).$promise.then(function(bags){
-            $scope.bags = bags;
+
+            $scope.bags = scoringService().determineWinnersByBags(bags);
         },function(error){
             console.log(error);
         });
@@ -43,6 +44,7 @@ angular.module('bassmonger')
                 bagResource.tournamentId = $state.params.tournamentId;
                 bagResource.$save().then(function(success){
                     $scope.bags.push(result);
+                    $scope.bags = scoringService().determineWinnersByBags($scope.bags);
                 },function(error){
                     console.log(error);
                 });

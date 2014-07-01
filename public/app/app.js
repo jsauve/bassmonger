@@ -9,7 +9,8 @@ angular.module('bassmonger',[
     'ui.bootstrap.tooltip',
     'ui.bootstrap.popover',
     'bassmonger.resources',
-    'bassmonger.filters'
+    'bassmonger.filters',
+    'bassmonger.services'
 ])
     .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise('');
@@ -48,6 +49,18 @@ angular.module('bassmonger',[
                     ]
                 }
             })
+            .state('tournaments-create',{
+                url:'/tournaments/create',
+                templateUrl:'/app/tournaments/create.html',
+                controller:'tournaments.create',
+                resolve:{
+                    resources:[
+                        'Tournaments',function(Tournaments){
+                            return {Tournaments:Tournaments};
+                        }
+                    ]
+                }
+            })
             .state('home',{
                 url:'?token&user',
                 title:'Bassmonger',
@@ -66,8 +79,8 @@ angular.module('bassmonger',[
                 templateUrl:'/app/tournaments/results.html',
                 controller:'tournaments.results',
                 resolve:{
-                    resources:['TournamentResults', function(TournamentResults){
-                        return {TournamentResults:TournamentResults};
+                    resources:['TournamentResults', 'Tournaments', function(TournamentResults, Tournaments){
+                        return {TournamentResults:TournamentResults,Tournaments:Tournaments};
                     }
                     ]
                 }

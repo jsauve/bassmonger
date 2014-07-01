@@ -1,7 +1,22 @@
-<div class="row" ng-repeat="team in teams">
-    <h6 ng-bind="team.name"></h6>
-    <div class="row" ng-repeat="member in team.members">
-        <div class="col-md-4">{{member.firstName}} {{member.lastName}}</div>
+<div class="page-header">
+    <div class="row">
+        <div class="col-lg-6 col-md-5 col-sm-4">
+            <h3>Teams</h3><button class="btn btn-success glyphicon-plus" ui-sref="teams-create">Create Team</button>
+        </div>
     </div>
 </div>
-<button class="btn btn-success" ui-sref="teams-create">Create Team</button>
+<div ng-repeat="team in teams">
+    <div class="row">
+        <div class="col-md-4">
+            <h4 ng-bind="team.name"></h4>
+        </div>
+    </div>
+    <div class="row">
+        <h5 class="col-md-2 col-md-offset-1">Team Members:</h5>
+    </div>
+    <div class="row" ng-repeat="member in team.members">
+        <div class="col-md-2 col-md-offset-1">
+           {{member.firstName}} {{member.lastName}}
+        </div>
+    </div>
+</div>

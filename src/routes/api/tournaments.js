@@ -110,7 +110,7 @@ module.exports = function(app, passport) {
         tourney.save(function(err){
             if(err){
                 res.send('500');
-                log.Error(err);
+                log.error(err);
             } else {
                 res.send('201');
             }

@@ -12,8 +12,8 @@ angular.module('bassmonger')
                 controller: 'tournaments.delete'
             });
             modalInstance.result.then(function(result) {
-                tournament.delete().then(function(success){
-
+                tournament.$delete().then(function(success){
+                    $scope.tournaments.splice($scope.tournaments.indexOf(tournament),1);
                 },function(error){
                     console.log(error);
                 });

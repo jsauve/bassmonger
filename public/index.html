@@ -12,9 +12,15 @@
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
+            <button ng-init="navbarCollapsed = false" type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a href="/" class="navbar-brand">Bassmonger</a>
         </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
+        <div class="navbar-collapse collapse" id="navbar-main" collapse="navbarCollapsed">
             <ul class="nav navbar-nav">
                 <li dropdown="" class="btn-group" dropdown="" is-open="status.isTeamsOpen">
                     <a type="button" class="btn btn-primary dropdown-toggle " ng-disabled="disabled">
@@ -74,6 +80,7 @@
 <script src="bower_components/angular-ui-bootstrap/src/bindHtml/bindHtml.js" type="application/javascript"></script>
 <script src="bower_components/angular-ui-bootstrap/src/tooltip/tooltip.js" type="application/javascript"></script>
 <script src="bower_components/angular-ui-bootstrap/src/popover/popover.js" type="application/javascript"></script>
+<script src="bower_components/angular-ui-bootstrap/src/collapse/collapse.js" type="application/javascript"></script>
 <script src="app/shared/filters/roundToHundredthsFilter.js" type="application/javascript"></script>
 <script src="app/shared/resources/tournaments.js" type="application/javascript"></script>
 <script src="app/services/scoringService.js" type="application/javascript"></script>

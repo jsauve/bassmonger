@@ -8,6 +8,7 @@ angular.module('bassmonger',[
     'ui.bootstrap.bindHtml',
     'ui.bootstrap.tooltip',
     'ui.bootstrap.popover',
+    'ui.bootstrap.collapse',
     'bassmonger.resources',
     'bassmonger.filters',
     'bassmonger.services'

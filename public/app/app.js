@@ -1,5 +1,6 @@
 angular.module('bassmonger',[
     'ngResource',
+    'ngAnimate',
     'ui.router',
     'ui.bootstrap.transition',
     'ui.bootstrap.modal',

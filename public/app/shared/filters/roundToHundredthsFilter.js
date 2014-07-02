@@ -3,6 +3,9 @@ angular.module('bassmonger.filters',[]).filter('roundToHundredths',[function(){
         if(angular.isString(number)){
             return parseFloat(number).toFixed(2);
         }
-        return number.toFixed(2);
+        if(number) {
+            return number.toFixed(2);
+        }
+        return undefined;
     };
 }]);

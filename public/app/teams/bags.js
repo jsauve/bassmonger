@@ -13,6 +13,10 @@ angular.module('bassmonger')
             console.log(error);
         });
 
+        $scope.viewTournamentResults = function(bag){
+            $state.go('tournaments-results',{tournamentId:bag._tournament._id});
+        };
+
         function aggregateData(bags){
             $scope.totalBass = _.reduce(bags,function(memo,bag) {
                 if (bag.numberOfBass) {

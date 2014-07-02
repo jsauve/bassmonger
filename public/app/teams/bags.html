@@ -7,7 +7,7 @@
 </div>
 <div class="row">
     <div class="table-responsive">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
                     <th class="hidden-sm hidden-xs">Week</th>
@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="bag in bags">
+                <tr ng-repeat="bag in bags" ng-click="viewTournamentResults(bag)">
                     <td class="hidden-sm hidden-xs" ng-bind="bag._tournament.name"></td>
                     <td ng-bind="bag._tournament.lake"></td>
                     <td ng-bind="bag.totalWeight"></td>

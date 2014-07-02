@@ -1,5 +1,5 @@
 angular.module('bassmonger')
-    .controller('tournaments.bags',['$scope', '$state', '$modal', 'resources', 'scoringService', function($scope, $state, $modal, resources,scoringService){
+    .controller('tournaments.bags',['$scope', '$state', '$modal', 'resources', 'scoringService', 'bagsService', function($scope, $state, $modal, resources,scoringService, bagsService){
         $scope.tournament = {};
         $scope.bags = [];
         console.log(scoringService);
@@ -39,6 +39,8 @@ angular.module('bassmonger')
             });
 
             modalInstance.result.then(function(result) {
+               /* var service = new bagsService($scope.tournament._id);
+                service.addBag(result);*/
                 var bagResource = new resources.Bags();
                 angular.extend(bagResource,result);
                 bagResource.tournamentId = $state.params.tournamentId;

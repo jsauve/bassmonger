@@ -77,4 +77,5 @@ angular.module('bassmonger.services',[])
         return function(){
             return service;
         };
-    }]);
+    }])
+    ;

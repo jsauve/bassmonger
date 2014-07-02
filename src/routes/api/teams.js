@@ -7,6 +7,7 @@ var _ = require('lodash');
 var mongoose = require('mongoose');
 var Team = mongoose.model('Team');
 var TeamMember = mongoose.model('TeamMember');
+var Bags = mongoose.model('Bags');
 var log = require(path.join(__dirname,'../../util/log'))(module);
 var verifyRole = require(path.join(__dirname,'../../util/authenticationRoles'));
 
@@ -28,6 +29,15 @@ module.exports = function(app, passport) {
             } else {
                 res.send(team);
             }
+        });
+    });
+
+    app.get('/api/v1/teams/:teamId/bags',function(req,res){
+         Bags.find({_team:req.params.teamId}).populate('_team _tournament').exec(function(err,bags){
+           if(err){
+               res.send(500);
+           }
+            res.send(bags);
         });
     });
 

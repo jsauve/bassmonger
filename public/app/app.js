@@ -99,6 +99,18 @@ angular.module('bassmonger',[
                     ]
                 }
             })
+            .state('teams-bags',{
+                url:'/teams/:teamId/bags',
+                templateUrl:'/app/teams/bags.html',
+                controller:'teams.bags',
+                resolve:{
+                    resources:[
+                        'Bags', 'Teams', function(Bags, Teams){
+                            return {Bags:Bags, Teams:Teams}
+                        }
+                    ]
+                }
+            })
             .state('teams-create',{
                 url:'/teams/create',
                 templateUrl:'/app/teams/create.html',

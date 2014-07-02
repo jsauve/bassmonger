@@ -1,0 +1,50 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-lg-6 col-md-5 col-sm-4">
+            <h3 ng-bind="team.name"></h3>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th class="hidden-sm hidden-xs">Week</th>
+                    <th>Lake</th>
+                    <th>Total Weight</th>
+                    <th>Big Bass</th>
+                    <th class="hidden-sm hidden-xs"># Bass</th>
+                    <th class="hidden-sm hidden-xs"># Pike</th>
+                    <th class="hidden-sm hidden-xs"># Walleye</th>
+                    <th class="hidden-sm hidden-xs"># Crappie</th>
+                    <th class="hidden-sm hidden-xs"># Bluegill</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="bag in bags">
+                    <td class="hidden-sm hidden-xs" ng-bind="bag._tournament.name"></td>
+                    <td ng-bind="bag._tournament.lake"></td>
+                    <td ng-bind="bag.totalWeight"></td>
+                    <td ng-bind="bag.bigBass.weight"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfBass"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfPike"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfWalleyes"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfCrappies"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="bag.numberOfBluegills"></td>
+                </tr>
+                <tr>
+                    <td>Totals</td>
+                    <td class="hidden-sm hidden-xs"></td>
+                    <td ng-bind="totalWeight | roundToHundredths"></td>
+                    <td ng-bind="biggestBass.bigBass.weight"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="totalBass"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="totalPike"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="totalWalleye"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="totalCrappie"></td>
+                    <td class="hidden-sm hidden-xs" ng-bind="totalBluegill"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

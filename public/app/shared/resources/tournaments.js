@@ -10,8 +10,11 @@ angular.module('bassmonger.resources', ['ngResource'])
     ])
     .factory('Teams', [
         '$resource', function($resource) {
-            return $resource('/api/v1/teams/:_id',
-                { _id: '@_id'  },
+            return $resource('/api/v1/teams/:_id/:controller',
+                {
+                    _id: '@_id',
+                    controller:'@controller'
+                },
                 {
                     'update': { method: 'PUT' }
                 });
